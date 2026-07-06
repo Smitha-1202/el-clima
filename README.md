@@ -2,7 +2,7 @@
 
 A clean, responsive weather app that lets you search for any city and instantly see the current weather conditions.
 
-**🔗 Live Demo:** [meteo-shecodes-app.netlify.app](https://meteo-shecodes-app.netlify.app)
+**🔗 Live Demo:** [live app](https://el-climaa.netlify.app/)
 
 ## ✨ Features
 
@@ -28,7 +28,7 @@ A clean, responsive weather app that lets you search for any city and instantly 
 
 ## 🚀 How to Use
 
-1. Open the [live app](https://meteo-shecodes-app.netlify.app)
+1. Open the [live app](https://el-climaa.netlify.app/)
 2. Type a city name into the search bar
 3. Press **Search** (or hit Enter)
 4. View the current temperature, description, humidity, wind speed, and icon for that city
