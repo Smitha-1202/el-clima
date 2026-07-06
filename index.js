@@ -40,23 +40,44 @@ function formatDate(date) {
 }
 
 
-function search(city){
-  // make api call and update the UI
+function search(city) {
+  let messageElement = document.querySelector("#message");
+  messageElement.innerHTML = "Loading...";
+
   let apikey = "72e52d46dd4874415072of2t313ba90b";
   let apiurl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apikey}&units=metric`;
-  axios.get(apiurl).then(refreshWeather);
+
+  axios
+    .get(apiurl)
+    .then(function (response) {
+      messageElement.innerHTML = "";
+      refreshWeather(response);
+    })
+    .catch(function (error) {
+      messageElement.innerHTML = "City not found. Please try another search.";
+      clearWeatherUI();
+    });
 }
 
+
+
+let searchFormElement = document.querySelector("#search-form");
+searchFormElement.addEventListener("submit", handleSearchSubmit);
+
+function clearWeatherUI() {
+  document.querySelector("#city").innerHTML = "";
+  document.querySelector("#time").innerHTML = "";
+  document.querySelector("#description").innerHTML = "";
+  document.querySelector("#humidity").innerHTML = "";
+  document.querySelector("#wind-speed").innerHTML = "";
+  document.querySelector("#temperature").innerHTML = "";
+  document.querySelector("#icon").innerHTML = "";
+}
 
 function handleSearchSubmit(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-form-input");
-  let cityElement = document.querySelector("#city");
-  cityElement.innerHTML = searchInput.value;
   search(searchInput.value);
 }
-
-let searchFormElement = document.querySelector("#search-form");
-searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 search("Paris");

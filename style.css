@@ -92,3 +92,9 @@ main{
   margin-top: 16px;
   font-size: 28px;
 }
+
+.weather-app-message {
+  font-size: 15px;
+  color: #6B7280;
+  margin: 0 0 10px 0;
+}
